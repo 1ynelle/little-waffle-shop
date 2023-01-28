@@ -8,6 +8,7 @@
     <title>Hours - Little Waffle Shop</title>
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -16,10 +17,10 @@
 
     <nav class="nav" aria-label="primary-navigation">
         <ul class="nav__ul">
-            <li><a href="./">Home</a></li>
-            <li><a href="./#menu">Menu</a></li>
+            <li><a href="/">Home</a></li>
+            <li id="nav__li--menu"><a href="/#menu">Menu</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="hours.html" class="nav__selected">Hours</a></li>
+            <li><a href="hours.html" class="selected">Hours</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -31,7 +32,7 @@
         </figure>
     </section>
 
-    <main>
+    <main class="main">
         <article id="hours" class="main__article hours">
             <h2>Hours</h2>
             <p>We are open seven days a week!</p>
@@ -47,8 +48,8 @@
 
     <footer class="footer">
         <p>
-            <span class="nowrap">Copyright &copy; 2023</span>
-            <span class="nowrap">The Little Waffle Shop</span>
+            <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+            <span class="nowrap">Little Waffle Shop</span>
         </p>
     </footer>
 </body>

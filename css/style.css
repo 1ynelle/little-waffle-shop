@@ -1,5 +1,5 @@
 /* CSS for Beginners Final Project - Dave Gray */
-/* 1/26/23 */
+/* 1/26-28/23 */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Sriracha&display=swap');
 
 :root {
@@ -24,7 +24,9 @@
 
 
 /* || RESET */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -36,7 +38,7 @@ img {
     max-width: 100%;
 }
 
-form :where(fieldset, label, input, textarea, button)  {
+fieldset, label, input, textarea, button {
     border: none;
     font: inherit;
 }
@@ -68,7 +70,6 @@ body {
     max-width: 800px;
     min-height: 100vh;
     padding: 1.5rem;
-
     display: flex;
     flex-flow: column nowrap;
 }
@@ -77,7 +78,7 @@ a {
     color: var(--LINK-COLOR);
 }
 
-a:where(:hover, :focus) {
+a:where(:hover, :focus-visible) {
     color: var(--LINK-HOVER);
     transition: all 0.3s ease;
 }
@@ -115,10 +116,6 @@ nav li {
 
 
 /* || HEADER */
-.header__h1 {
-    margin-bottom: 1rem;
-}
-
 .header__h1::before {
     content: "🧇 ";
 }
@@ -151,11 +148,15 @@ nav li {
     text-decoration: none;
 }
 
-.nav a:where(:hover, :focus) {
+.nav a:active {
+    color: var(--LINK-ACTIVE);
+}
+
+.nav a:where(:hover, :focus-visible) {
     color: var(--LINK-HOVER);
 }
 
-.nav__selected {
+.nav a.selected {
     color: var(--LINK-COLOR);
 }
 
@@ -167,40 +168,43 @@ nav li {
 }
 
 .hero__h2 {
-    animation: showWelcome 0.5s ease-in-out forwards;
     background-color: rgba(196, 143, 93, 0.8);
     border-radius: 1rem 3px 1rem 3px;
     color: var(--TEXT-WHITE);
-    left: 1rem;
     padding: 0.5rem 1rem;
     position: absolute;
-    top: 1rem;
+    top: 0;
+    left: 1rem;
+    animation: showWelcome 0.5s ease-in-out forwards;
     transform-origin: top center;
 }
 
 @keyframes showWelcome {
     0% {
+        top: 0;
         transform: scaleY(0);
     }
 
     80% {
+        top: 1rem;
         transform: scaleY(1.2);
     }
 
     100% {
+        top: 1rem;
         transform: scaleY(1);
     }
 }
 
 
 /* || MAIN */
-main {
+.main {
     flex: 1;
 }
 
 .main__article {
-    margin: 2rem 0 3rem 0;
     scroll-margin-top: 4rem;
+    padding: 2rem 0 3rem 0;
 }
 
 .main__article :where(p, dd) {
@@ -228,14 +232,27 @@ main {
 
 
 /* || MENU */
-.menu__container {
-    border-collapse: collapse;
-    text-align: center;
-    width: 100%;
+/* Turn table to grid - flatten while keeping semantic markup (make menu items act like divs in a parent container set to display: grid */
+/* Setting an element to 'display: contents' causes the element's children to appear as if they were *direct children* of the element's parent, ignoring the element itself. */
+    /* So setting 'display: contents' on thead, tbody, tfoot, and tr makes .menu__container (set to display: grid) ignore them and use .menu__items (th, td) as grid items  */
+
+thead, tbody, tfoot, tr {
+    display: contents;
 }
 
-.menu__tr:nth-child(3n+3) {
-    border-bottom: 3px solid var(--BORDER-COLOR);
+.menu__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* just have to specify grid area for items that take up more than one row / column which are cr (Crunchy), sf (Soft) and sb (Syrup and ButteR) */
+    grid-template-areas:
+        "hd1 hd2 hd3"
+        "cr cr1 cr1p"
+        "cr cr2 cr2p"
+        "cr cr3 cr3p"
+        "sf sf1 sf1p"
+        "sf sf2 sf2p"
+        "sf sf3 sf3p"
+        "sb sb sb";
 }
 
 .menu__heading {
@@ -244,18 +261,35 @@ main {
     padding: 0.5rem;
 }
 
-.menu__cr,
-.menu__sf {
-    border-right: var(--BORDER);
-    font: bold 1.25rem var(--FF-HEADING);
-}
-
 .menu__item {
+    display: grid;
+    place-content: center;
     border-bottom: var(--BORDER);
     padding: 1rem;
 }
 
+/* menu item in every third row, since display: contents ignoring tr */
+.menu__tr:nth-child(3n) > .menu__item {
+    border-bottom: 3px solid var(--BORDER-COLOR);
+}
+
+.menu__cr,
+.menu__sf {
+    border-right: var(--BORDER);
+    border-bottom: 3px solid var(--BORDER-COLOR);
+    font: bold 1.25rem var(--FF-HEADING);
+}
+
+.menu__cr {
+    grid-area: cr;
+}
+
+.menu__sf {
+    grid-area: sf;
+}
+
 .menu__sb {
+    grid-area: sb;
     font-weight: bold;
     border-bottom: 3px solid var(--BORDER-COLOR);
 }
@@ -336,7 +370,7 @@ main {
     width: 100%;
 }
 
-:where(.contact__input, .contact__textarea):focus {
+:where(.contact__input, .contact__textarea):focus-visible {
     outline: var(--BORDER);
 }
 
@@ -346,7 +380,7 @@ main {
     margin-right: 0.8rem;
 }
 
-.contact__btn--primary:where(:hover, :focus) {
+.contact__btn--primary:where(:hover, :focus-visible) {
     background-color: var(--LINK-HOVER);
 }
 
@@ -360,7 +394,7 @@ main {
     outline: 2px solid var(--LINK-COLOR);
 }
 
-.contact__btn--secondary:where(:hover, :focus) {
+.contact__btn--secondary:where(:hover, :focus-visible) {
     color: var(--LINK-HOVER);
     outline: 2px solid var(--LINK-HOVER);
 }
@@ -372,7 +406,7 @@ main {
 
 .contact__h3 {
     font: bold 1rem var(--FF-BODY);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: left;
 }
 
@@ -408,3 +442,12 @@ main {
     }
 }
 
+@media screen and (max-width: 425px) {
+    .header__h1::after {
+        content: "";
+    }
+
+    #nav__li--menu {
+        display: none;
+    }
+}

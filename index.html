@@ -10,6 +10,7 @@
     <title>Little Waffle Shop</title>
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -19,8 +20,8 @@
     <nav class="nav" aria-label="primary-navigation">
         <ul class="nav__ul">
             <!-- Small project w/o plans to put styles directly on list items, so can leave them without class -->
-            <li><a href="./" class="nav__selected">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
+            <li><a href="/" class="selected">Home</a></li>
+            <li id="nav__li--menu"><a href="#menu">Menu</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="hours.html">Hours</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -37,7 +38,7 @@
         </figure>
     </section>
 
-    <main>
+    <main class="main">
         <article id="menu" class="main__article menu">
             <h2 class="menu__h2">Our Menu</h2>
 
@@ -104,8 +105,8 @@
 
     <footer class="footer">
         <p>
-            <span class="nowrap">Copyright &copy; 2023</span>
-            <span class="nowrap">The Little Waffle Shop</span>
+            <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+            <span class="nowrap">Little Waffle Shop</span>
         </p>
     </footer>
 </body>
