@@ -1,0 +1,112 @@
+<!-- HTML for Beginners Final Project - Dave Gray -->
+<!-- 1/22/23  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Little Waffle Shop">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Waffle Shop</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__h1">Little Waffle Shop</h1>
+    </header>
+
+    <nav class="nav" aria-label="primary-navigation">
+        <ul class="nav__ul">
+            <!-- Small project w/o plans to put styles directly on list items, so can leave them without class -->
+            <li><a href="./" class="nav__selected">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="hours.html">Hours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 'Hero' section is part of the page after the header where you generally see a large image or attention getter -->
+    <section class="hero">
+        <!-- "Welcome" h2 will only be on the homepage -->
+        <h2 class="hero__h2">Welcome!</h2>
+        <figure>
+            <img src="img/waffles_and_breakfast_1000x563.jpg" alt="Waffles and Breakfast Food" title="Waffles and Breakfast Food" width="1000" height="563" loading="lazy">
+            <figcaption class="offscreen">Waffles and Breakfast Food</figcaption>
+        </figure>
+    </section>
+
+    <main>
+        <article id="menu" class="main__article menu">
+            <h2 class="menu__h2">Our Menu</h2>
+
+            <table class="menu__container">
+                <caption class="offscreen">Our Waffles</caption>
+                <thead>
+                    <tr>
+                        <th class="menu__heading" scope="col">Waffles</th>
+                        <th class="menu__heading" scope="col">Quantity</th>
+                        <th class="menu__heading" scope="col">Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="menu__tr">
+                        <th class="menu__item menu__cr" scope="row" rowspan="3">
+                            Crunchy
+                        </th>
+                        <td class="menu__item">1</td>
+                        <td class="menu__item">$1.50</td>
+                    </tr>
+
+                    <tr class="menu__tr">
+                        <td class="menu__item">2</td>
+                        <td class="menu__item">$2.50</td>
+                    </tr>
+
+                    <tr class="menu__tr">
+                        <td class="menu__item">3</td>
+                        <td class="menu__item">$3.25</td>
+                    </tr>
+
+                    <tr class="menu__tr">
+                        <th class="menu__item menu__sf" scope="row" rowspan="3">
+                            Soft
+                        </th>
+                        <td class="menu__item">1</td>
+                        <td class="menu__item">$2.00</td>
+                    </tr>
+
+                    <tr class="menu__tr">
+                        <td class="menu__item">2</td>
+                        <td class="menu__item">$3.50</td>
+                    </tr>
+
+                    <tr class="menu__tr">
+                        <td class="menu__item">3</td>
+                        <td class="menu__item">$4.50</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td class="menu__item menu__sb" colspan="3">
+                            Syrup &amp; Butter $2
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+        
+        <p class="main__btt"><a href="#">Back to Top &#8593;</a></p>
+    </main>
+
+    <footer class="footer">
+        <p>
+            <span class="nowrap">Copyright &copy; 2023</span>
+            <span class="nowrap">The Little Waffle Shop</span>
+        </p>
+    </footer>
+</body>
+</html>
