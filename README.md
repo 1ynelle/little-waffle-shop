@@ -5,7 +5,7 @@ Waffle version of the Little Taco Shop website :)
 
 ---
 
-###Image Credits  
+### Image Credits  
 [Home & About Hero](https://unsplash.com/@marywestasc)  
 [About Image](https://unsplash.com/@davidholifield)  
 [Hours Hero](https://unsplash.com/@mybbor)  
