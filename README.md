@@ -3,6 +3,8 @@
 Final Project for Dave Gray's [CSS for Beginners Course](https://www.youtube.com/watch?v=n4R2E7O-Ngo).  
 Waffle version of the Little Taco Shop website :)  
 
+**[🔗 Live Preview](https://1ynelle.github.io/little-waffle-shop)**
+
 ---
 
 ### Image Credits  
