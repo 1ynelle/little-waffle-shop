@@ -1,4 +1,4 @@
-# Little Waffle Shop  
+## 🧇 Little Waffle Shop  
 
 Final Project for Dave Gray's [CSS for Beginners Course](https://www.youtube.com/watch?v=n4R2E7O-Ngo).  
 Waffle version of the Little Taco Shop website :)  
