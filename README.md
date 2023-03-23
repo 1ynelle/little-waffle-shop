@@ -5,6 +5,8 @@ Waffle version of the Little Taco Shop website :)
 
 **[🔗 Live Preview](https://1ynelle.github.io/little-waffle-shop)**
 
+<img src="/img/little-waffle-shop_dg.png" alt="Little Waffle Shop Site Image Preview" width="600">
+
 ---
 
 ### Image Credits  
